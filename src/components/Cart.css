@@ -1,0 +1,17 @@
+.shop-cart{
+    /* width: 50%; */
+    border: 1px solid black;
+    padding: 2px;
+    margin: 5rem;
+    box-shadow: 0 0 5px 5px ;
+}
+
+.cart-title{
+    padding: 0.5rem;
+}
+
+@media (max-width:640px){
+    .shop-cart{
+        margin:2rem
+    }
+}
