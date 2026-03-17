@@ -10,10 +10,11 @@
 }
 
 .proceed-btn{
-    width:8rem;
+    width:10rem;
     background-color: #ffce12;
     border: none;
     border-radius: 2rem;
+    cursor: pointer;
 }
 
 @media (max-width:640px){
