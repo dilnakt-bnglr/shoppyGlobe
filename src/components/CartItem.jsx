@@ -23,7 +23,10 @@ function CartItem() {
           </div>
 
           <div>
-            <p>Price 9.99</p>
+            <span className="border border-danger text-bg-danger p-1">
+              10% off
+            </span>
+            <p className="fw-semibold">Price 9.99</p>
           </div>
         </div>
       </div>

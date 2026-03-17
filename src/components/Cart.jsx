@@ -5,7 +5,10 @@ import CartItem from "./CartItem";
 function Cart() {
   return (
     <div className="shop-cart">
-      <h2 className="cart-title fw-light">Shopping Cart</h2>
+      <div className="d-flex justify-content-between">
+        <h2 className="cart-title fw-light">Shopping Cart</h2>
+        <button className="proceed-btn">Proceed to Buy</button>
+      </div>
 
       <CartItem />
       <CartItem />

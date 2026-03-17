@@ -1,13 +1,19 @@
 .shop-cart{
-    /* width: 50%; */
-    border: 1px solid black;
+    border: 1px;
     padding: 2px;
     margin: 5rem;
-    box-shadow: 0 0 5px 5px ;
+    box-shadow: 0 0 5px 5px whitesmoke ;
 }
 
 .cart-title{
     padding: 0.5rem;
+}
+
+.proceed-btn{
+    width:8rem;
+    background-color: #ffce12;
+    border: none;
+    border-radius: 2rem;
 }
 
 @media (max-width:640px){
