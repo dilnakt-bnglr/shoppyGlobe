@@ -1,7 +1,9 @@
 import React from "react";
 import "./ProductItem.css";
+import { useSelector } from "react-redux";
 
 function ProductItem() {
+  const productname = useSelector((store) => store.addProduct.product) || [];
   return (
     <div className="main-container d-flex gap-3">
       <div className="card card-cont">
