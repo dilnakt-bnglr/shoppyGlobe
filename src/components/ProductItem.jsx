@@ -2,39 +2,22 @@ import React from "react";
 import "./ProductItem.css";
 import { useSelector } from "react-redux";
 
-function ProductItem() {
-  const productname = useSelector((store) => store.addProduct.product) || [];
+function ProductItem({ product }) {
+  // debugger;
+  // const productname = useSelector((store) => store.addProduct.product) || [];
+  console.log(product);
   return (
-    <div className="main-container d-flex gap-3">
+    <div className="main-container g-5 col-md-4">
       <div className="card card-cont">
         <img
-          src="https://images.pexels.com/photos/34092/pexels-photo.jpg"
+          src={product.images[0]}
           className="card-img-top card-img"
           alt="img"
+          width={"30%"}
         />
         <div className="card-body">
-          <h5 className="card-title">Card title</h5>
-          <p className="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card’s content.
-          </p>
-          <a href="#" className="btn btn-primary">
-            Add to Cart
-          </a>
-        </div>
-      </div>
-      <div className="card card-cont">
-        <img
-          src="https://images.pexels.com/photos/34092/pexels-photo.jpg"
-          className="card-img-top card-img"
-          alt="img"
-        />
-        <div className="card-body">
-          <h5 className="card-title">Card title</h5>
-          <p className="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card’s content.
-          </p>
+          <h5 className="card-title">{product.title}</h5>
+          <p className="card-text">{product.description}</p>
           <a href="#" className="btn btn-primary">
             Add to Cart
           </a>
