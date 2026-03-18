@@ -1,5 +1,6 @@
 import React from "react";
 import { BsCart3 } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -16,16 +17,14 @@ function Header() {
 
       <div>
         <ul className="d-flex list-unstyled mb-0">
-          <li className="me-3">
-            <a href="#" className="text-decoration-none">
-              Home
-            </a>
-          </li>
-          <li className="me-3">
-            <a href="#" className="text-decoration-none">
+          <Link to="/">
+            <li>Home</li>
+          </Link>
+          <Link to="/cart">
+            <li className="me-3">
               <BsCart3 />
-            </a>
-          </li>
+            </li>
+          </Link>
         </ul>
       </div>
     </div>

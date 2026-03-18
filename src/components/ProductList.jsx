@@ -1,6 +1,7 @@
 import React from "react";
 import useFetch from "../utils/useFetch";
 import ProductItem from "./ProductItem";
+import { useSelector } from "react-redux";
 
 function ProductList() {
   const { products = [], error } = useFetch("https://dummyjson.com/products");
