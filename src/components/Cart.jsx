@@ -1,18 +1,43 @@
 import React from "react";
 import "./Cart.css";
 import CartItem from "./CartItem";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { clearCart } from "../utils/cartSlice";
 
 function Cart() {
   const cartData = useSelector((store) => store.cart.cart);
-  console.log("cart", cartData);
+  const dispatch = useDispatch();
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
+
   return (
     <div className="shop-cart">
       <div className="d-flex justify-content-between">
         <h2 className="cart-title fw-light">Shopping Cart</h2>
-        <button className="proceed-btn">Proceed to Buy</button>
+        <div>
+          {cartData.length > 0 ? (
+            <button className="proceed-btn" onClick={handleClearCart}>
+              Clear Cart
+            </button>
+          ) : (
+            ""
+          )}
+          {cartData.length > 0 ? (
+            <button className="proceed-btn">Proceed to Buy</button>
+          ) : (
+            ""
+          )}
+        </div>
       </div>
-      {cartData.map((cartItem) => console.log(cartItem))}
+      {cartData.length <= 0 ? (
+        <p className="fw-semibold text-center">No Items in the Cart</p>
+      ) : (
+        ""
+      )}
+      {cartData.map((cartItem) => (
+        <CartItem key={cartItem.id} cartItem={cartItem} />
+      ))}
     </div>
   );
 }
