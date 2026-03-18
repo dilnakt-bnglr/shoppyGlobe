@@ -1,33 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 function ProductDetail() {
+  const params = useParams();
+  const [productDetail, setProductDetail] = useState(null);
+  // console.log(params);
+
+  useEffect(() => {
+    const productUrl = `https://dummyjson.com/products/${params.id}`;
+    fetch(productUrl)
+      .then((res) => res.json())
+      .then((data) => setProductDetail(data));
+  }, [params]);
+
   return (
     <div className="container">
       <div className="row">
         <div className="col-md-6">
-          <img
-            width={"80%"}
-            src="https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"
-          />
+          <img width={"80%"} src={productDetail?.images[0]} />
         </div>
         <div className="col-md-6">
-          {/* <img src="https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp" /> */}
-          <h1>Essence Mascara Lash Princess</h1>
-          <p>
-            The Essence Mascara Lash Princess is a popular mascara known for its
-            volumizing and lengthening effects. Achieve dramatic lashes with
-            this long-lasting and cruelty-free formula.
-          </p>
-          <p>2.56</p>
-          <p>Price 9.99</p>
+          <h1>{productDetail?.title}</h1>
+          <p>{productDetail?.description}</p>
+          <p>{productDetail?.rating}</p>
+          <p>Price {productDetail?.price}</p>
         </div>
       </div>
       <div className="row m-2 border border-secondary p-2">
         <div className="col-md-6">
           <h3>Reviews</h3>
-          <p>Rating 3</p>
-          <h4>Eleanor Collins</h4>
-          <p>Would not recommend!</p>
+          {productDetail?.reviews?.map((review) => {
+            return (
+              <div>
+                <h4 className="fw-light">{review.reviewerName}</h4>
+                <p>{review.rating}</p>
+
+                <p>{review.comment}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

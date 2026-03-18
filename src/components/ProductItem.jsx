@@ -2,6 +2,7 @@ import React from "react";
 import "./ProductItem.css";
 import { useDispatch } from "react-redux";
 import { addCartItem } from "../utils/cartSlice.js";
+import { Link } from "react-router-dom";
 
 function ProductItem({ product }) {
   const dispatch = useDispatch();
@@ -22,13 +23,15 @@ function ProductItem({ product }) {
         <div className="card-body">
           <h5 className="card-title">{product.title}</h5>
           <p className="card-text">{product.description}</p>
-          <a
-            href="#"
+          <button
             className="btn btn-primary"
             onClick={() => handleAddToCart(product)}
           >
             Add to Cart
-          </a>
+          </button>
+          <Link to={`/products/${product.id}`}>
+            <button className="btn btn-primary">View Details</button>
+          </Link>
         </div>
       </div>
     </div>
