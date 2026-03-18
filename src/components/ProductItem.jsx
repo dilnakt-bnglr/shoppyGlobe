@@ -1,11 +1,7 @@
 import React from "react";
 import "./ProductItem.css";
-import { useSelector } from "react-redux";
 
 function ProductItem({ product }) {
-  // debugger;
-  // const productname = useSelector((store) => store.addProduct.product) || [];
-  console.log(product);
   return (
     <div className="main-container g-5 col-md-4">
       <div className="card card-cont">
