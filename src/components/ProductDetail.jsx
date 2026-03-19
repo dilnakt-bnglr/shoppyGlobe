@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { LiaRupeeSignSolid } from "react-icons/lia";
+import { IoPersonCircleOutline } from "react-icons/io5";
 
 function ProductDetail() {
   const params = useParams();
@@ -14,28 +16,50 @@ function ProductDetail() {
   }, [params]);
 
   return (
-    <div className="container">
+    <div className="container shadow-sm mt-5">
       <div className="row">
         <div className="col-md-6">
           <img width={"80%"} src={productDetail?.images[0]} />
         </div>
-        <div className="col-md-6">
-          <h1>{productDetail?.title}</h1>
-          <p>{productDetail?.description}</p>
-          <p>{productDetail?.rating}</p>
-          <p>Price {productDetail?.price}</p>
+        <div className="col-md-6 m-auto">
+          <h1 className="fs-1 fw-bold">{productDetail?.title}</h1>
+          <p className="fs-5 fw-normal">{productDetail?.description}</p>
+          <p className="fst-italic text-warning fw-semibold">
+            Rating : {productDetail?.rating}
+          </p>
+          <p className="text-success">{productDetail?.availabilityStatus}</p>
+          <p className="text-primary">{productDetail?.shippingInformation}</p>
+          <hr />
+          <p className="fs-3 fw-bold">
+            <span className="text-danger fw-light fs-4">
+              -{productDetail?.discountPercentage}%
+            </span>{" "}
+            <sup>
+              <LiaRupeeSignSolid />
+            </sup>
+            {productDetail?.price}
+          </p>
         </div>
       </div>
-      <div className="row m-2 border border-secondary p-2">
-        <div className="col-md-6">
-          <h3>Reviews</h3>
+      <hr />
+      <div className="row m-2 border border-0 p-5">
+        <div className="col-md">
+          <h3 className="text-center mb-4">Customer Reviews</h3>
           {productDetail?.reviews?.map((review) => {
             return (
               <div>
-                <h4 className="fw-light">{review.reviewerName}</h4>
-                <p>{review.rating}</p>
+                <h4 className="fw-bolder fs-5">
+                  <span className="me-3">
+                    <IoPersonCircleOutline />
+                  </span>
+                  {review.reviewerName}
+                </h4>
+                <p className="text-warning fw-semibold">
+                  Rating : {review.rating}
+                </p>
 
-                <p>{review.comment}</p>
+                <p className="fst-italic">{review.comment}</p>
+                <hr />
               </div>
             );
           })}

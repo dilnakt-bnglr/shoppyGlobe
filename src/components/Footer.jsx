@@ -4,7 +4,7 @@ import "./Footer.css";
 
 function Footer() {
   return (
-    <footer className="bg-light">
+    <footer className="bg-light mt-5">
       <div className="row">
         <div className="col-md-4">
           <h4 className="fw-bold">ShoppyGlobe</h4>
@@ -38,8 +38,8 @@ function Footer() {
         </div>
       </div>
       <hr className="border-secondary mt-4" />
-      <div className="text-center">
-        <span>© 2026 ShoppyGlobe. All rights reserved.</span>
+      <div className="text-center ">
+        <span className="">© 2026 ShoppyGlobe. All rights reserved.</span>
       </div>
     </footer>
   );
