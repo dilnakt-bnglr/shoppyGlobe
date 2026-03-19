@@ -6,8 +6,10 @@ import { clearCart } from "../utils/cartSlice";
 import { Link } from "react-router-dom";
 
 function Cart() {
-  const cartData = useSelector((store) => store.cart.cart);
+  const cartData = useSelector((store) => store.cart.cart); //Subscribe the cart data from cartSlice
   const dispatch = useDispatch();
+
+  // Clear all the cartItems
   const handleClearCart = () => {
     dispatch(clearCart());
   };

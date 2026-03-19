@@ -6,10 +6,12 @@ const cartSlice = createSlice({
     cart: [],
   },
   reducers: {
+    // To add product to cart
     addCartItem: (state, action) => {
       const cartItem = { ...action.payload, productCount: 1 };
       state.cart.push(cartItem);
     },
+    // To remove a product from cart
     removeCartItem: (state, action) => {
       const cartItems = [...state.cart];
       const filteredCartItems = cartItems.filter(
@@ -17,9 +19,11 @@ const cartSlice = createSlice({
       );
       state.cart = filteredCartItems;
     },
+    // To clear the cart
     clearCart: (state) => {
       state.cart.length = 0;
     },
+    // To increment the count of the products in the cart
     incermentProductCount: (state, action) => {
       const productItems = [...state.cart];
       const updatedProductCount = productItems.filter((product) => {
@@ -30,6 +34,7 @@ const cartSlice = createSlice({
       });
       state.cart = updatedProductCount;
     },
+    // To decrement the count of the products in the cart
     decrementProductCount: (state, action) => {
       const productItems = [...state.cart];
       const updatedProductCount = productItems.filter((product) => {

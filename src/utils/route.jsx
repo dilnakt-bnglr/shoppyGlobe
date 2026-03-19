@@ -7,6 +7,7 @@ import Cart from "../components/Cart.jsx";
 import ProductsPage from "../components/ProductsPage.jsx";
 import Checkout from "../components/Checkout.jsx";
 
+// Routes for the application
 const router = createBrowserRouter([
   {
     element: <Layout />,

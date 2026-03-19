@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 function NotFound() {
   const error = useRouteError();
-  console.log(error);
   return (
     <div className="d-flex justify-content-center align-items-center min-vh-100">
       <div className="text-center">

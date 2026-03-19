@@ -8,15 +8,17 @@ import { addCartItem } from "../utils/cartSlice.js";
 function ProductDetail() {
   const params = useParams();
   const dispatch = useDispatch();
-  const [productDetail, setProductDetail] = useState(null);
+  const [productDetail, setProductDetail] = useState(null); // To store the product details
 
   useEffect(() => {
+    // To fetch the product details using id
     const productUrl = `https://dummyjson.com/products/${params.id}`;
     fetch(productUrl)
       .then((res) => res.json())
       .then((data) => setProductDetail(data));
   }, [params]);
 
+  // To add product to cart
   const handleAddToCart = (productDetail) => {
     dispatch(addCartItem(productDetail));
   };

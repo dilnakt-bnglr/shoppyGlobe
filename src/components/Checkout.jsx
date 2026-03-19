@@ -5,9 +5,10 @@ import { useDispatch } from "react-redux";
 import { clearCart } from "../utils/cartSlice";
 
 function Checkout() {
-  const [isOrderPlaced, setIsOrderPlaced] = useState(false);
+  const [isOrderPlaced, setIsOrderPlaced] = useState(false); // To check if the order is placed or not
   const dispatch = useDispatch();
 
+  // To place the order
   const handlePlaceOrder = () => {
     setIsOrderPlaced(true);
     dispatch(clearCart());

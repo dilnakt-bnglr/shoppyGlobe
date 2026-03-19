@@ -8,6 +8,7 @@ const useFetch = (url) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    // Fetch the API with the url
     fetch(url)
       .then((res) => res.json())
       .then((data) => {

@@ -1,5 +1,4 @@
 import React from "react";
-import "./ProductItem.css";
 import { useDispatch } from "react-redux";
 import { addCartItem } from "../utils/cartSlice.js";
 import { Link } from "react-router-dom";
@@ -7,6 +6,7 @@ import { Link } from "react-router-dom";
 function ProductItem({ product }) {
   const dispatch = useDispatch();
 
+  // To add product to the cart
   const handleAddToCart = (product) => {
     dispatch(addCartItem(product));
   };

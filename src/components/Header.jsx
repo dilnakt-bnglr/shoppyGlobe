@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function Header() {
-  const cartCount = useSelector((store) => store.cart.cart.length);
+  const cartCount = useSelector((store) => store.cart.cart.length); // Subscribe the cartData to show the count of the cartitem
   return (
     <div className="d-flex justify-content-between align-items-center bg-light px-4 py-2">
-      <p className="text-capitalize fw-bolder fs-3 mb-0">ShoppyGlobe</p>
+      <Link to="/" className="text-decoration-none text-dark">
+        <p className="text-capitalize fw-bolder fs-3 mb-0">ShoppyGlobe</p>
+      </Link>
 
       <nav>
         <ul className="d-flex align-items-center list-unstyled mb-0 gap-4">

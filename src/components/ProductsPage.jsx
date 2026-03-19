@@ -6,6 +6,7 @@ import { searchProducts } from "../utils/productSlice";
 function ProductsPage() {
   const dispatch = useDispatch();
 
+  //To search products with title and category
   const handleInput = (searchText) => {
     dispatch(searchProducts(searchText));
   };

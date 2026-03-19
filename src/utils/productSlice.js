@@ -7,10 +7,12 @@ const productSlice = createSlice({
     allProducts: [],
   },
   reducers: {
+    // To set the product lists
     productList: (state, action) => {
       state.products = action.payload;
       state.allProducts = action.payload;
     },
+    // To search products with title and category
     searchProducts: (state, action) => {
       const products = JSON.parse(JSON.stringify(state.allProducts));
 
@@ -22,7 +24,6 @@ const productSlice = createSlice({
           return product;
         }
       });
-      console.log("dfvdbd", filteredProduct);
       state.products = filteredProduct;
     },
   },

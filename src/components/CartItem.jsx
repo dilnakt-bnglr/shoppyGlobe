@@ -11,14 +11,17 @@ import { LuMinus } from "react-icons/lu";
 function CartItem({ cartItem }) {
   const dispatch = useDispatch();
 
+  // Remove a single cartitem from cart
   const handleRemovecartItem = (item) => {
     dispatch(removeCartItem(item));
   };
 
+  // Increment the product count
   const handleIncrementProductCount = (item) => {
     dispatch(incermentProductCount(item));
   };
 
+  // Decrement the product count
   const handleDecrementProductCount = (item) => {
     dispatch(decrementProductCount(item));
   };
