@@ -1,12 +1,40 @@
-# React + Vite
+## ShoppyGlobe
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ShoppyGlobe is a React‑based e‑commerce web application that lists products from a fake REST API, lets users view product details, manage a cart, and complete a simple checkout flow.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Frontend**: React 18, Vite
+- **State Management**: Redux Toolkit
+- **Routing**: React Router DOM
+- **Styling**:Bootstrap 5
+- **Icons**: React Icons
+- **Build Tool**: Vite
 
-## Expanding the ESLint configuration
+## GitHub Link:- https://github.com/dilnakt-bnglr/shoppyGlobe
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Installation
+
+1. **Clone the repository**:
+
+   git clone https://github.com/dilnakt-bnglr/shoppyGlobe.git
+
+2. **Install dependencies**:
+
+   npm install
+
+3. **Start the development server**:
+
+   npm run dev
+
+4. **Open your browser** and navigate to `http://localhost:5173`
+
+## Usage
+
+- **Browse products**:Home → go to the products section.Use the search bar to filter products by title.
+
+- **View product details**:Click “View Details” on any product card to open its details page with full description, price, discount, availability, shipping info, and reviews.
+
+- **Add to cart**:Click “Add to Cart” on a product card or from the product details page.Click the Cart link/icon in the header to open the cart page.
+
+- **Checkout**:From the cart page, proceed to checkout.Fill in the checkout form.Click Buy Now to simulate placing an order
