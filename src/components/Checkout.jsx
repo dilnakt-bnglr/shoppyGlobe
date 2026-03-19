@@ -3,15 +3,21 @@ import Cart from "./Cart";
 import "./Checkout.css";
 import { useDispatch } from "react-redux";
 import { clearCart } from "../utils/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 function Checkout() {
   const [isOrderPlaced, setIsOrderPlaced] = useState(false); // To check if the order is placed or not
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // To place the order
   const handlePlaceOrder = () => {
     setIsOrderPlaced(true);
     dispatch(clearCart());
+    // Redirecting to homepage after 2 seconds
+    setTimeout(() => {
+      navigate("/");
+    }, 2000);
   };
 
   return (
