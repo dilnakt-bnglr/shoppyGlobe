@@ -4,6 +4,7 @@ import Layout from "../components/Layout.jsx";
 import NotFound from "../components/NotFound.jsx";
 import ProductDetail from "../components/ProductDetail.jsx";
 import Cart from "../components/Cart.jsx";
+import ProductsPage from "../components/ProductsPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -22,10 +23,10 @@ const router = createBrowserRouter([
         path: "/cart",
         element: <Cart />,
       },
-      // {
-      //   path:"/productlist",
-      //   element:
-      // }
+      {
+        path: "/productlist",
+        element: <ProductsPage />,
+      },
     ],
   },
 ]);

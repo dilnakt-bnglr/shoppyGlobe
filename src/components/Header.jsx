@@ -4,29 +4,29 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <div
-      className="d-flex align-items-center bg-light
-"
-    >
-      <p className="text-capitalize fw-bolder p-2 fs-3">ShoppyGlobe</p>
+    <div className="d-flex justify-content-between align-items-center bg-light px-4 py-2">
+      <p className="text-capitalize fw-bolder fs-3 mb-0">ShoppyGlobe</p>
 
-      <div className="d-flex mx-auto">
-        <input type="text" className="form-control d-inline-block me-2" />
-        <button className="btn btn-primary">Search</button>
-      </div>
-
-      <div>
-        <ul className="d-flex list-unstyled mb-0">
-          <Link to="/">
-            <li>Home</li>
-          </Link>
-          <Link to="/cart">
-            <li className="me-3">
+      <nav>
+        <ul className="d-flex align-items-center list-unstyled mb-0 gap-4">
+          <li>
+            <Link to="/" className="text-decoration-none text-dark">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/productlist" className="text-decoration-none text-dark">
+              Products
+            </Link>
+          </li>
+          <li className="position-relative">
+            <Link to="/cart" className="text-decoration-none text-dark">
               <BsCart3 />
-            </li>
-          </Link>
+              <span className="ms-1">6</span>
+            </Link>
+          </li>
         </ul>
-      </div>
+      </nav>
     </div>
   );
 }
