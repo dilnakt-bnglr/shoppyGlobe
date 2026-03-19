@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { LiaRupeeSignSolid } from "react-icons/lia";
 import { IoPersonCircleOutline } from "react-icons/io5";
+import { useDispatch } from "react-redux";
+import { addCartItem } from "../utils/cartSlice.js";
 
 function ProductDetail() {
   const params = useParams();
+  const dispatch = useDispatch();
   const [productDetail, setProductDetail] = useState(null);
   // console.log(params);
 
@@ -14,6 +17,10 @@ function ProductDetail() {
       .then((res) => res.json())
       .then((data) => setProductDetail(data));
   }, [params]);
+
+  const handleAddToCart = (productDetail) => {
+    dispatch(addCartItem(productDetail));
+  };
 
   return (
     <div className="container shadow-sm mt-5">
@@ -39,6 +46,12 @@ function ProductDetail() {
             </sup>
             {productDetail?.price}
           </p>
+          <button
+            className="btn btn-primary border border-0 bg-warning text-black fw-bold mb-2"
+            onClick={() => handleAddToCart(productDetail)}
+          >
+            Add to Cart
+          </button>
         </div>
       </div>
       <hr />
@@ -48,8 +61,8 @@ function ProductDetail() {
           {productDetail?.reviews?.map((review) => {
             return (
               <div>
-                <h4 className="fw-bolder fs-5">
-                  <span className="me-3">
+                <h4 className="fw-semibold fs-6">
+                  <span className="me-2 fs-2">
                     <IoPersonCircleOutline />
                   </span>
                   {review.reviewerName}

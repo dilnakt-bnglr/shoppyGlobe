@@ -60,16 +60,30 @@ function HomeBanner() {
       <div className="carousel-inner carousel-cont">
         <div className="carousel-item active position-relative">
           <img src={banner1} className="d-block w-100" alt="..." />
-          <div class="carousel-caption d-none d-md-block position-absolute top-0 start-0">
-            <h5>First slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
+          <div class="carousel-caption d-none d-md-block position-absolute top-0  text-center text-black">
+            <h5>Limited‑Time Deals, Big Savings</h5>
+            <p>Grab up to 75% off on top picks before the offer ends.</p>
           </div>
         </div>
         <div className="carousel-item">
           <img src={banner2} className="d-block w-100" alt="..." />
+          <div class="carousel-caption d-none d-md-block position-absolute top-50 left-10  text-center text-black">
+            <h5>Discover Your Everyday Essentials</h5>
+            <p>
+              From fashion to gadgets, find everything you need in one place at
+              ShoppyGlobe.
+            </p>
+          </div>
         </div>
         <div className="carousel-item">
           <img src={banner3} className="d-block w-100" alt="..." />
+          <div class="carousel-caption d-none d-md-block position-absolute top-0  text-center text-black">
+            <h5>Fast Delivery. Secure Shopping.</h5>
+            <p>
+              Enjoy safe checkout, easy tracking, and doorstep delivery every
+              time.
+            </p>
+          </div>
         </div>
       </div>
       <button
