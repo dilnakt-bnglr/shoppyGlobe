@@ -9,6 +9,13 @@ function ProductList() {
   const productList = useSelector((state) => state.products.products); // Subscribe product list from productSlice
   return (
     <div className="container" id="product-list">
+      {productList?.length <= 0 ? (
+        <p className="text-center fw-bold text-danger fs-4">
+          No products found. Try a different title or category.
+        </p>
+      ) : (
+        ""
+      )}
       <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         {productList &&
           productList.map((product) => (

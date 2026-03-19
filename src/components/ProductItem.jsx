@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { addCartItem } from "../utils/cartSlice.js";
 import { Link } from "react-router-dom";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import { LazyLoadImage } from "react-lazy-load-image-component"; // Library to lazy load the image
 
 function ProductItem({ product }) {
   const dispatch = useDispatch();

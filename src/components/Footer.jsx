@@ -22,7 +22,10 @@ function Footer() {
         <div className="col-md-4">
           <h6 className="text-uppercase mb-3">Quick Links</h6>
           <ul className="list-unstyled small">
-            <Link to="/" className="text-decoration-none text-light-50">
+            <Link
+              to="/productlist"
+              className="text-decoration-none text-light-50"
+            >
               <li>Shop</li>
             </Link>
 

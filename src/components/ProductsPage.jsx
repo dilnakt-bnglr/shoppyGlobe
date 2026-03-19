@@ -18,6 +18,7 @@ function ProductsPage() {
           type="text"
           className=" d-inline-block me-2 border rounded-pill p-2"
           style={{ width: "50%" }}
+          placeholder="Search your products by title & category"
           onChange={(e) => handleInput(e.target.value)}
         />
       </div>
