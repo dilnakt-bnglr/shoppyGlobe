@@ -7,7 +7,8 @@ const cartSlice = createSlice({
   },
   reducers: {
     addCartItem: (state, action) => {
-      state.cart.push(action.payload);
+      const cartItem = { ...action.payload, productCount: 1 };
+      state.cart.push(cartItem);
     },
     removeCartItem: (state, action) => {
       const cartItems = [...state.cart];
@@ -19,9 +20,37 @@ const cartSlice = createSlice({
     clearCart: (state) => {
       state.cart.length = 0;
     },
+    incermentProductCount: (state, action) => {
+      const productItems = [...state.cart];
+      const updatedProductCount = productItems.filter((product) => {
+        if (product.id == action.payload.id) {
+          product.productCount += 1;
+        }
+        return product;
+      });
+      state.cart = updatedProductCount;
+    },
+    decrementProductCount: (state, action) => {
+      const productItems = [...state.cart];
+      const updatedProductCount = productItems.filter((product) => {
+        if (product.id == action.payload.id) {
+          if (product.productCount > 1) {
+            product.productCount -= 1;
+          }
+        }
+        return product;
+      });
+      state.cart = updatedProductCount;
+    },
   },
 });
 
-export const { addCartItem, removeCartItem, clearCart } = cartSlice.actions;
+export const {
+  addCartItem,
+  removeCartItem,
+  clearCart,
+  incermentProductCount,
+  decrementProductCount,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;

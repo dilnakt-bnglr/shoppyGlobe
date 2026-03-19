@@ -9,7 +9,6 @@ function ProductDetail() {
   const params = useParams();
   const dispatch = useDispatch();
   const [productDetail, setProductDetail] = useState(null);
-  // console.log(params);
 
   useEffect(() => {
     const productUrl = `https://dummyjson.com/products/${params.id}`;

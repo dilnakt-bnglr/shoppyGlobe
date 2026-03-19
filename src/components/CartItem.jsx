@@ -1,6 +1,12 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { removeCartItem } from "../utils/cartSlice";
+import {
+  removeCartItem,
+  incermentProductCount,
+  decrementProductCount,
+} from "../utils/cartSlice";
+import { GoPlus } from "react-icons/go";
+import { LuMinus } from "react-icons/lu";
 
 function CartItem({ cartItem }) {
   const dispatch = useDispatch();
@@ -9,10 +15,18 @@ function CartItem({ cartItem }) {
     dispatch(removeCartItem(item));
   };
 
+  const handleIncrementProductCount = (item) => {
+    dispatch(incermentProductCount(item));
+  };
+
+  const handleDecrementProductCount = (item) => {
+    dispatch(decrementProductCount(item));
+  };
+
   return (
     <div>
       <hr />
-      <div className="row">
+      <div className="row mb-3">
         <div className="col-md-2">
           <img src={cartItem.images[0]} width={"80%"} />
         </div>
@@ -20,13 +34,28 @@ function CartItem({ cartItem }) {
           <div className="" style={{ width: "60%" }}>
             <h3>{cartItem.title}</h3>
             <p>{cartItem.description}</p>
-            <button
-              type="button"
-              className="btn btn-link p-0"
-              onClick={() => handleRemovecartItem(cartItem)}
-            >
-              Remove
-            </button>
+            <div className="d-flex">
+              <div className="border border-2 rounded-pill border-warning fw-bold text-center ">
+                <LuMinus
+                  className="mx-2"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => handleDecrementProductCount(cartItem)}
+                />
+                <span>{cartItem.productCount}</span>
+                <GoPlus
+                  className="mx-2"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => handleIncrementProductCount(cartItem)}
+                />
+              </div>
+              <button
+                type="button"
+                className="btn btn-link p-0 mx-4"
+                onClick={() => handleRemovecartItem(cartItem)}
+              >
+                Remove
+              </button>
+            </div>
           </div>
 
           <div>
