@@ -3,6 +3,7 @@ import "./Cart.css";
 import CartItem from "./CartItem";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart } from "../utils/cartSlice";
+import { Link } from "react-router-dom";
 
 function Cart() {
   const cartData = useSelector((store) => store.cart.cart);
@@ -24,7 +25,9 @@ function Cart() {
             ""
           )}
           {cartData.length > 0 ? (
-            <button className="proceed-btn">Proceed to Buy</button>
+            <Link to="/checkout">
+              <button className="proceed-btn">Proceed to Buy</button>
+            </Link>
           ) : (
             ""
           )}

@@ -7,7 +7,10 @@ function Footer() {
     <footer className="bg-light mt-5">
       <div className="row">
         <div className="col-md-4">
-          <h4 className="fw-bold">ShoppyGlobe</h4>
+          <Link to="/" className="text-decoration-none text-dark">
+            <h4 className="fw-bold">ShoppyGlobe</h4>
+          </Link>
+
           <p className="small mb-0">
             ShoppyGlobe is your one-stop destination for trendy fashion,
             everyday essentials, and curated deals from trusted sellers. Shop
@@ -19,16 +22,13 @@ function Footer() {
         <div className="col-md-4">
           <h6 className="text-uppercase mb-3">Quick Links</h6>
           <ul className="list-unstyled small">
-            <li>
-              <a href="#" className="text-decoration-none text-light-50">
-                Shop
-              </a>
-            </li>
-            <li>
-              <a href="#" className="text-decoration-none text-light-50">
-                Cart
-              </a>
-            </li>
+            <Link to="/" className="text-decoration-none text-light-50">
+              <li>Shop</li>
+            </Link>
+
+            <Link to="/cart" className="text-decoration-none text-light-50">
+              <li>Cart</li>
+            </Link>
           </ul>
         </div>
         <div className="col-md-4">

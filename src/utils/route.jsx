@@ -5,6 +5,7 @@ import NotFound from "../components/NotFound.jsx";
 import ProductDetail from "../components/ProductDetail.jsx";
 import Cart from "../components/Cart.jsx";
 import ProductsPage from "../components/ProductsPage.jsx";
+import Checkout from "../components/Checkout.jsx";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/productlist",
         element: <ProductsPage />,
+      },
+      {
+        path: "/checkout",
+        element: <Checkout />,
       },
     ],
   },

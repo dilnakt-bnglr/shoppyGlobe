@@ -22,7 +22,7 @@ function CartItem({ cartItem }) {
             <p>{cartItem.description}</p>
             <button
               type="button"
-              class="btn btn-link"
+              className="btn btn-link p-0"
               onClick={() => handleRemovecartItem(cartItem)}
             >
               Remove
