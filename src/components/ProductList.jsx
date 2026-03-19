@@ -4,9 +4,14 @@ import ProductItem from "./ProductItem";
 import { useSelector } from "react-redux";
 
 function ProductList() {
-  useFetch("https://dummyjson.com/products"); // Using custom hook to fetch productlist
+  const { data, error } = useFetch("https://dummyjson.com/products"); // Using custom hook to fetch productlist
 
   const productList = useSelector((state) => state.products.products); // Subscribe product list from productSlice
+
+  // error handling
+  if (error) {
+    return <p className="text-center mt-4 fw-bold fs-4 text-danger">{error}</p>;
+  }
   return (
     <div className="container" id="product-list">
       {productList?.length <= 0 ? (

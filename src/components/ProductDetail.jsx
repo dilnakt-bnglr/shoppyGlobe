@@ -10,19 +10,32 @@ function ProductDetail() {
   const params = useParams();
   const dispatch = useDispatch();
   const [productDetail, setProductDetail] = useState(null); // To store the product details
+  const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
     // To fetch the product details using id
     const productUrl = `https://dummyjson.com/products/${params.id}`;
     fetch(productUrl)
       .then((res) => res.json())
-      .then((data) => setProductDetail(data));
+      .then((data) => setProductDetail(data))
+      .catch((error) => {
+        setErrorMessage(error?.message);
+      });
   }, [params]);
 
   // To add product to cart
   const handleAddToCart = (productDetail) => {
     dispatch(addCartItem(productDetail));
   };
+
+  // error handling
+  if (errorMessage) {
+    return (
+      <p className="text-center mt-4 fw-bold fs-4 text-danger">
+        {errorMessage}
+      </p>
+    );
+  }
 
   return (
     <div className="container shadow-sm mt-5">
