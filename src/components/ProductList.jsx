@@ -6,7 +6,7 @@ function ProductList() {
   const { products = [], error } = useFetch("https://dummyjson.com/products");
   return (
     <div className="container" id="product-list">
-      <div className="row">
+      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         {products &&
           products.map((product) => (
             <ProductItem key={product.id} product={product} />
