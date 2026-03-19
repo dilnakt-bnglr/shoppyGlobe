@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Cart from "./Cart";
 import "./Checkout.css";
+import { useDispatch } from "react-redux";
+import { clearCart } from "../utils/cartSlice";
 
 function Checkout() {
+  const [isOrderPlaced, setIsOrderPlaced] = useState(false);
+  const dispatch = useDispatch();
+
+  const handlePlaceOrder = () => {
+    setIsOrderPlaced(true);
+    dispatch(clearCart());
+  };
+
   return (
     <div className="container checkout-container">
       <div className="row">
-        <div className="col-md-4 col-12 checkout-form form-content shadow-sm">
+        <div className="col-md-4 col-12 checkout-form shadow-sm">
           <br />
           <input type="text" id="fname" name="fname" placeholder="Enter Name" />
           <br />
@@ -29,12 +39,21 @@ function Checkout() {
           <br />
           <textarea id="address" placeholder="Enter Address "></textarea>
           <br />
-          <button className="btn btn-primary border border-0 bg-success p-2 my-2">
-            Buy Now
+          <button
+            className="btn btn-primary border border-0 bg-warning p-2 my-2"
+            onClick={handlePlaceOrder}
+          >
+            Place Order
           </button>
         </div>
-        <div className="col-sm-8 col-12">
-          <Cart />
+        <div className="col-sm-8 col-12 m-auto">
+          {isOrderPlaced ? (
+            <div className="text-center fs-1 fw-semibold text-success">
+              Order Placed Successfully !
+            </div>
+          ) : (
+            <Cart />
+          )}
         </div>
       </div>
     </div>

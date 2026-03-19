@@ -5,10 +5,8 @@
 
 .checkout-form{
     margin-top: 5rem !important;
-}
-
-.form-content{
     text-align: center;
+    height: fit-content;
     input{
         width: 60%;
     }
