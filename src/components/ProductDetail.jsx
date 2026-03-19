@@ -4,6 +4,7 @@ import { LiaRupeeSignSolid } from "react-icons/lia";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { useDispatch } from "react-redux";
 import { addCartItem } from "../utils/cartSlice.js";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function ProductDetail() {
   const params = useParams();
@@ -27,7 +28,7 @@ function ProductDetail() {
     <div className="container shadow-sm mt-5">
       <div className="row">
         <div className="col-md-6">
-          <img width={"80%"} src={productDetail?.images[0]} />
+          <LazyLoadImage width={"80%"} src={productDetail?.images[0]} />
         </div>
         <div className="col-md-6 m-auto">
           <h1 className="fs-1 fw-bold">{productDetail?.title}</h1>

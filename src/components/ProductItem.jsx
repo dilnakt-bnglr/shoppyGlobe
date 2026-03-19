@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { addCartItem } from "../utils/cartSlice.js";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function ProductItem({ product }) {
   const dispatch = useDispatch();
@@ -14,11 +15,12 @@ function ProductItem({ product }) {
   return (
     <div className="main-container g-5 ">
       <div className="card card-cont h-100 d-flex flex-column shadow-lg">
-        <img
+        <LazyLoadImage
           src={product.images[0]}
           className="card-img-top card-img"
           alt="img"
           width={"30%"}
+          loading="lazy"
         />
         <div className="card-body d-flex flex-column">
           <h5 className="card-title">{product.title}</h5>
