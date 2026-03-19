@@ -9,7 +9,10 @@ const cartSlice = createSlice({
     // To add product to cart
     addCartItem: (state, action) => {
       const cartItem = { ...action.payload, productCount: 1 };
-      state.cart.push(cartItem);
+      const exists = state.cart.some((pr) => pr.id === cartItem.id); // checking for duplicate
+      if (!exists) {
+        state.cart.push(cartItem);
+      }
     },
     // To remove a product from cart
     removeCartItem: (state, action) => {
