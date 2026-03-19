@@ -1,37 +1,68 @@
 import { createBrowserRouter } from "react-router-dom";
-import App from "../App.jsx";
-import Layout from "../components/Layout.jsx";
-import NotFound from "../components/NotFound.jsx";
-import ProductDetail from "../components/ProductDetail.jsx";
-import Cart from "../components/Cart.jsx";
-import ProductsPage from "../components/ProductsPage.jsx";
-import Checkout from "../components/Checkout.jsx";
+import { lazy, Suspense } from "react";
+
+// Implemented the lazy loading
+const Layout = lazy(() => import("../components/Layout.jsx"));
+const App = lazy(() => import("../App.jsx"));
+const NotFound = lazy(() => import("../components/NotFound.jsx"));
+const ProductDetail = lazy(() => import("../components/ProductDetail.jsx"));
+const ProductsPage = lazy(() => import("../components/ProductsPage.jsx"));
+const Cart = lazy(() => import("../components/Cart.jsx"));
+const Checkout = lazy(() => import("../components/Checkout.jsx"));
 
 // Routes for the application
 const router = createBrowserRouter([
   {
-    element: <Layout />,
-    errorElement: <NotFound />,
+    element: (
+      <Suspense fallback={<p>Loading...</p>}>
+        <Layout />
+      </Suspense>
+    ),
+    errorElement: (
+      <Suspense fallback={<p>Loading...</p>}>
+        <NotFound />
+      </Suspense>
+    ),
     children: [
       {
         path: "/",
-        element: <App />,
+        element: (
+          <Suspense fallback={<p>Loading...</p>}>
+            <App />
+          </Suspense>
+        ),
       },
       {
         path: "/products/:id",
-        element: <ProductDetail />,
+        element: (
+          <Suspense fallback={<p>Loading...</p>}>
+            <ProductDetail />
+          </Suspense>
+        ),
       },
       {
         path: "/cart",
-        element: <Cart />,
+        element: (
+          <Suspense fallback={<p>Loading...</p>}>
+            <Cart />
+          </Suspense>
+        ),
       },
       {
         path: "/productlist",
-        element: <ProductsPage />,
+        element: (
+          <Suspense fallback={<p>Loading...</p>}>
+            <ProductsPage />
+          </Suspense>
+        ),
       },
       {
         path: "/checkout",
-        element: <Checkout />,
+        element: (
+          <Suspense fallback={<p>Loading...</p>}>
+            <Checkout />
+          </Suspense>
+        ),
       },
     ],
   },
